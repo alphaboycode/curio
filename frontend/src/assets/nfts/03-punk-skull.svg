@@ -1,0 +1,27 @@
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="bgC" cx="50%" cy="40%" r="75%">
+      <stop offset="0%" stop-color="#3a0d0d"/>
+      <stop offset="100%" stop-color="#100303"/>
+    </radialGradient>
+  </defs>
+  <rect width="500" height="500" fill="url(#bgC)"/>
+  <!-- skull -->
+  <path d="M250 100 C170 100 130 170 135 250 C138 300 160 320 165 360 L335 360 C340 320 362 300 365 250 C370 170 330 100 250 100 Z" fill="#f1f1ea" stroke="#8a8a7d" stroke-width="4"/>
+  <!-- eye sockets -->
+  <path d="M165 230 Q205 195 235 230 Q205 270 165 230 Z" fill="#1a1a1a"/>
+  <path d="M335 230 Q295 195 265 230 Q295 270 335 230 Z" fill="#1a1a1a"/>
+  <circle cx="200" cy="228" r="9" fill="#ff3b3b"/>
+  <circle cx="300" cy="228" r="9" fill="#ff3b3b"/>
+  <!-- nose -->
+  <path d="M235 275 L265 275 L250 305 Z" fill="#1a1a1a"/>
+  <!-- jaw / teeth -->
+  <rect x="180" y="330" width="140" height="30" rx="6" fill="#f1f1ea" stroke="#8a8a7d" stroke-width="3"/>
+  <line x1="205" y1="330" x2="205" y2="360" stroke="#8a8a7d" stroke-width="2"/>
+  <line x1="230" y1="330" x2="230" y2="360" stroke="#8a8a7d" stroke-width="2"/>
+  <line x1="255" y1="330" x2="255" y2="360" stroke="#8a8a7d" stroke-width="2"/>
+  <line x1="280" y1="330" x2="280" y2="360" stroke="#8a8a7d" stroke-width="2"/>
+  <line x1="305" y1="330" x2="305" y2="360" stroke="#8a8a7d" stroke-width="2"/>
+  <!-- mohawk -->
+  <path d="M225 100 L235 40 L250 90 L265 40 L275 100 Z" fill="#ff3b3b"/>
+</svg>

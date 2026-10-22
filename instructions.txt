@@ -1,0 +1,37 @@
+instructions.txt
+
+In frontend/src/assets/nfts, there are 3 nfts image there.
+Now do the following 
+
+Wallet 1: 
+Address: 0xbab4e21897330c341161Ca7b881e2c9ffCac0BF2
+Private key: 489eee3c04865570094971d66495f91141d91e1f2c960550183800d87e0c8ebf
+
+Mint 5 nfts, with this name and description
+Name: Fox Spirit
+Description: Swift, clever, and touched by moonlight, the Fox Spirit slips between the mortal world and the mist beyond. Catch its glow if you can.
+
+For tokenuri, use the fox spirit image in assets/nfts
+After minting 5 nfts, list 2 and buy 2 from the marketplace 
+
+
+Wallet 2: 0x8Ff521632bce1F54F2DA35a71fEfEa5c368f5d8f
+
+a73fae1dcabf4b5dc260148cfb2affa9c87a1bf5a07c00b9c5a63599d6c0050b
+
+Crystal Golem
+
+Forged deep beneath the earth, the Crystal Golem is a silent guardian of living stone and shimmering crystal. Every facet holds ancient power.
+
+Do same, mint 5, list 2 and buy 2 from the marketplace 
+
+Wallet 3
+0xDFa20435760c4E2B966415D310B1cC4eEd5D1743
+
+95c298110017a3166c79c4cea885e5d89d835522b4acedbb8ed5c3c702fc75dc
+
+Punk Skull
+
+No flesh, no rules, no fear. The Punk Skull wears its attitude on the bone.
+
+Do same, mint 5, list 2 and buy 2 from the marketplace
