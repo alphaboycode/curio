@@ -834,7 +834,7 @@ export function App() {
       {/* Contract & Network Address Sub-header */}
       <div className="bg-gray-950/70 border-b border-gray-800/80 px-4 py-2 text-xs">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-2">
-          <div className="flex items-center space-x-2 text-gray-400 truncate w-full md:w-auto">
+          {/* <div className="flex items-center space-x-2 text-gray-400 truncate w-full md:w-auto">
             <span className="text-gray-500 font-medium">Curio Contract:</span>
             {isEditingAddress ? (
               <div className="flex items-center space-x-1.5 flex-1">
@@ -884,7 +884,7 @@ export function App() {
                 </button>
               </div>
             )}
-          </div>
+          </div> */}
 
           <div className="flex items-center space-x-4 text-[11px] text-gray-400">
             <div className="flex items-center space-x-1">
