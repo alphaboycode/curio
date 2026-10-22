@@ -1,0 +1,19 @@
+{
+  "name": "curio",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "cd frontend && bun run dev",
+    "build": "cd frontend && bun run build",
+    "test:contracts": "./bin/forge test -vvv",
+    "compile": "./bin/forge build",
+    "deploy:anvil": "./bin/forge script script/Deploy.s.sol --rpc-url http://127.0.0.1:8545 --broadcast"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  }
+}
