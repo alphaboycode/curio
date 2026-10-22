@@ -687,7 +687,7 @@ export function App() {
                   Botchain
                 </span>
               </div>
-              <p className="text-[11px] text-gray-400">Indexer-less NFT Marketplace</p>
+              <p className="text-[11px] text-gray-400">NFT Marketplace</p>
             </div>
           </div>
 

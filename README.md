@@ -1,4 +1,4 @@
-# Curio — Indexer-less NFT Marketplace on Botchain Testnet
+# Curio — NFT Marketplace on Botchain Testnet
 
 Curio is an all-in-one NFT minting and marketplace smart contract and decentralized application (dApp). It enables users to mint NFTs with custom media and metadata on **Pinata IPFS**, list NFTs for sale at custom native token prices (**BOT**), and buy NFTs directly on-chain with **zero platform selling fees** — without requiring external indexers (such as The Graph or off-chain databases).
 
