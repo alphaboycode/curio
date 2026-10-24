@@ -3,7 +3,7 @@ import CurioAbi from './CurioNFTMarketplaceAbi.json';
 
 // Deployed CurioNFTMarketplace address on Botchain Mainnet (Chain ID: 677)
 export const CURIO_CONTRACT_ADDRESS =
-  import.meta.env.VITE_CURIO_CONTRACT_ADDRESS || '0x5F21A463B9f89ACA481056504e461eBa2cBd704f';
+  import.meta.env.VITE_CURIO_CONTRACT_ADDRESS || '0x37972DCed63F6bB8356AE002DE75FEB2b37dAB9D';
 
 export const BOTCHAIN_NETWORK_CONFIG = {
   chainId: 677,

@@ -1,21 +1,19 @@
-# Curio — NFT Marketplace on Botchain Testnet
+# Curio — NFT Marketplace on Botchain Mainnet
 
 Curio is an all-in-one NFT minting and marketplace smart contract and decentralized application (dApp). It enables users to mint NFTs with custom media and metadata on **Pinata IPFS**, list NFTs for sale at custom native token prices (**BOT**), and buy NFTs directly on-chain with **zero platform selling fees** — without requiring external indexers (such as The Graph or off-chain databases).
 
 ---
 
-## 🌐 Botchain Testnet Deployment Details
+## 🌐 Botchain Mainnet Deployment Details
 
-- **Network Name**: Botchain Testnet (Bohr Life)
-- **Chain ID**: `968` (`0x3c8`)
-- **RPC URL**: [https://rpc.bohr.life](https://rpc.bohr.life)
+- **Network Name**: Botchain Mainnet
+- **Chain ID**: `677` (`0x2a5`)
+- **RPC URL**: [https://rpc.botchain.ai](https://rpc.botchain.ai)
 - **Native Currency**: `BOT` (18 Decimals)
 - **Total Supply**: 150 Million BOT
-- **Block Explorer**: [https://scan.bohr.life](https://scan.bohr.life)
-- **Deployed Contract Address**: [`0x5F21A463B9f89ACA481056504e461eBa2cBd704f`](https://scan.bohr.life/address/0x5F21A463B9f89ACA481056504e461eBa2cBd704f)
-- **Deployment Tx Hash**: [`0x1e3d629b3b82e27fa7d403dfc2a2667e04182c68d4e0a91449c48f8164164646`](https://scan.bohr.life/tx/0x1e3d629b3b82e27fa7d403dfc2a2667e04182c68d4e0a91449c48f8164164646)
-- **Genesis Mint Tx Hash (Token #1)**: [`0x6acbb570b4fe4454f10a7941566b8d0c6bb1e582a4e0b70ec66050e58f7c784e`](https://scan.bohr.life/tx/0x6acbb570b4fe4454f10a7941566b8d0c6bb1e582a4e0b70ec66050e58f7c784e)
-- **Genesis Listing Tx Hash**: [`0xc19e5e01519c32dbe2d86d896a49e1be3e48c54efce762de84aeeb48b2281689`](https://scan.bohr.life/tx/0xc19e5e01519c32dbe2d86d896a49e1be3e48c54efce762de84aeeb48b2281689)
+- **Block Explorer**: [https://scan.botchain.ai](https://scan.botchain.ai)
+- **Deployed Contract Address**: [`0x37972DCed63F6bB8356AE002DE75FEB2b37dAB9D`](https://scan.botchain.ai/address/0x37972DCed63F6bB8356AE002DE75FEB2b37dAB9D)
+- **Deployment Tx Hash**: [`0x810fb88c2431b1da358385187f9031f2617ee5126e8ad2ec80b2e351fb675aba`](https://scan.botchain.ai/tx/0x810fb88c2431b1da358385187f9031f2617ee5126e8ad2ec80b2e351fb675aba)
 
 ---
 
@@ -77,11 +75,11 @@ curio/
 The frontend is pre-configured with the deployed contract and Pinata JWT in `frontend/.env`:
 
 ```env
-VITE_CURIO_CONTRACT_ADDRESS=0x5F21A463B9f89ACA481056504e461eBa2cBd704f
-VITE_CHAIN_ID=968
-VITE_RPC_URL=https://rpc.bohr.life
+VITE_CURIO_CONTRACT_ADDRESS=0x37972DCed63F6bB8356AE002DE75FEB2b37dAB9D
+VITE_CHAIN_ID=677
+VITE_RPC_URL=https://rpc.botchain.ai
 VITE_NATIVE_CURRENCY_SYMBOL=BOT
-VITE_EXPLORER_URL=https://scan.bohr.life
+VITE_EXPLORER_URL=https://scan.botchain.ai
 VITE_PINATA_JWT=your_pinata_jwt
 VITE_PINATA_GATEWAY=https://gateway.pinata.cloud/ipfs/
 ```
@@ -102,11 +100,11 @@ Interact with the contract directly via `cast`:
 
 ```bash
 # Query contract name
-cast call 0x5F21A463B9f89ACA481056504e461eBa2cBd704f "name()(string)" --rpc-url https://rpc.bohr.life
+cast call 0x37972DCed63F6bB8356AE002DE75FEB2b37dAB9D "name()(string)" --rpc-url https://rpc.botchain.ai
 
 # Query all active marketplace listings
-cast call 0x5F21A463B9f89ACA481056504e461eBa2cBd704f "getAllActiveListings()((uint256,string,address,address,uint256,bool)[])" --rpc-url https://rpc.bohr.life
+cast call 0x37972DCed63F6bB8356AE002DE75FEB2b37dAB9D "getAllActiveListings()((uint256,string,address,address,uint256,bool)[])" --rpc-url https://rpc.botchain.ai
 
 # Query total minted NFTs
-cast call 0x5F21A463B9f89ACA481056504e461eBa2cBd704f "totalMinted()(uint256)" --rpc-url https://rpc.bohr.life
+cast call 0x37972DCed63F6bB8356AE002DE75FEB2b37dAB9D "totalMinted()(uint256)" --rpc-url https://rpc.botchain.ai
 ```

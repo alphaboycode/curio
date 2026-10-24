@@ -2,7 +2,7 @@ import { ethers } from '../frontend/node_modules/ethers';
 import abiJson from '../frontend/src/contracts/CurioNFTMarketplaceAbi.json';
 
 const RPC_URL = process.env.VITE_RPC_URL || 'https://rpc.botchain.ai';
-const CONTRACT_ADDRESS = process.env.VITE_CURIO_CONTRACT_ADDRESS || '0x5F21A463B9f89ACA481056504e461eBa2cBd704f';
+const CONTRACT_ADDRESS = process.env.VITE_CURIO_CONTRACT_ADDRESS || '0x37972DCed63F6bB8356AE002DE75FEB2b37dAB9D';
 
 const WALLET_CONFIGS = [
   {
@@ -10,21 +10,21 @@ const WALLET_CONFIGS = [
     address: '0xbab4e21897330c341161Ca7b881e2c9ffCac0BF2',
     privateKey: '489eee3c04865570094971d66495f91141d91e1f2c960550183800d87e0c8ebf',
     nftName: 'Fox Spirit',
-    tokenURI: 'ipfs://bafkreibg66tjhcu2nznhnu5we7zonumifqhbiabxm7ezdxwi5uiwz7ejca',
+    tokenURI: 'ipfs://QmcQaqR1RpPkaPY67WngPwZPe8t8WCmUfJxypmDqQc5XNR',
   },
   {
     name: 'Wallet 2',
     address: '0x8Ff521632bce1F54F2DA35a71fEfEa5c368f5d8f',
     privateKey: 'a73fae1dcabf4b5dc260148cfb2affa9c87a1bf5a07c00b9c5a63599d6c0050b',
     nftName: 'Crystal Golem',
-    tokenURI: 'ipfs://bafkreigjkj5hw6o5nu32l446b2znp6ogrmxqtqc6fqk3vagrc35gpmheeu',
+    tokenURI: 'ipfs://QmNTJrHqyhQFrezJ74eJrR2dSZarX1wfSocoLadYktk3DA',
   },
   {
     name: 'Wallet 3',
     address: '0xDFa20435760c4E2B966415D310B1cC4eEd5D1743',
     privateKey: '95c298110017a3166c79c4cea885e5d89d835522b4acedbb8ed5c3c702fc75dc',
     nftName: 'Punk Skull',
-    tokenURI: 'ipfs://bafkreih47kelgppgnowylzm4oi2futt47lst4zmzdore6vcjmnttfyabku',
+    tokenURI: 'ipfs://QmbL2zsGwCgnENzsHGeRaXJjb4jHjXJUkmNXPRNnWgVuaH',
   },
 ];
 
