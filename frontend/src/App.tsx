@@ -177,7 +177,7 @@ export function App() {
           if (currentChainId !== BOTCHAIN_NETWORK_CONFIG.chainId) {
             setTxMessage({
               type: 'info',
-              text: `Connected to chain ${currentChainId}. Please switch to Botchain Testnet (${BOTCHAIN_NETWORK_CONFIG.chainId}).`,
+              text: `Connected to chain ${currentChainId}. Please switch to ${BOTCHAIN_NETWORK_CONFIG.chainName} (${BOTCHAIN_NETWORK_CONFIG.chainId}).`,
             });
           }
         }
@@ -445,7 +445,7 @@ export function App() {
         finalTokenURI = manualTokenURI.trim();
       }
 
-      // Phase 3: Mint on Botchain Testnet
+      // Phase 3: Mint on Botchain Mainnet
       setMintStep('awaiting-tx');
       setCurrentMintTokenURI(finalTokenURI);
       setTxMessage({
@@ -499,7 +499,7 @@ export function App() {
 
       setTxMessage({
         type: 'success',
-        text: `NFT successfully minted on Botchain Testnet! ${mintedTokenId ? `Token ID #${mintedTokenId}` : ''}`,
+        text: `NFT successfully minted on Botchain Mainnet! ${mintedTokenId ? `Token ID #${mintedTokenId}` : ''}`,
         txHash: tx.hash,
       });
 
@@ -785,7 +785,7 @@ export function App() {
               ) : (
                 <div className="hidden sm:flex items-center space-x-2 bg-emerald-500/10 border border-emerald-500/30 rounded-xl px-3 py-2 text-xs text-emerald-300 font-medium">
                   <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                  <span>Botchain Testnet (968)</span>
+                  <span>{BOTCHAIN_NETWORK_CONFIG.chainName} ({BOTCHAIN_NETWORK_CONFIG.chainId})</span>
                 </div>
               )
             )}
@@ -897,11 +897,11 @@ export function App() {
             ) : (
               <div className="flex items-center space-x-2">
                 <a
-                  href={`https://scan.bohr.life/address/${contractAddress}`}
+                  href={`https://scan.botchain.ai/address/${contractAddress}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="font-mono text-purple-400 hover:text-purple-300 flex items-center space-x-1 transition"
-                  title="View contract on Bohr Explorer"
+                  title="View contract on Botchain Explorer"
                 >
                   <span>{contractAddress}</span>
                   <ExternalLink className="w-3 h-3 flex-shrink-0" />
@@ -920,7 +920,7 @@ export function App() {
           <div className="flex items-center space-x-4 text-[11px] text-gray-400">
             <div className="flex items-center space-x-1">
               <span className="text-gray-500">Chain ID:</span>
-              <span className="text-gray-300 font-mono">968</span>
+              <span className="text-gray-300 font-mono">{BOTCHAIN_NETWORK_CONFIG.chainId}</span>
             </div>
             <div className="flex items-center space-x-1">
               <span className="text-gray-500">Fee:</span>
@@ -945,7 +945,7 @@ export function App() {
               <AlertCircle className="w-4 h-4 text-amber-400 flex-shrink-0" />
               <span>
                 Your wallet is currently connected to chain ID <strong>{chainId}</strong>. Please switch to{' '}
-                <strong>Botchain Testnet (Chain ID 968)</strong> to mint, list, and buy NFTs.
+                <strong>{BOTCHAIN_NETWORK_CONFIG.chainName} (Chain ID {BOTCHAIN_NETWORK_CONFIG.chainId})</strong> to mint, list, and buy NFTs.
               </span>
             </div>
             <button
@@ -982,12 +982,12 @@ export function App() {
                 <span>{txMessage.text}</span>
                 {txMessage.txHash && (
                   <a
-                    href={`https://scan.bohr.life/tx/${txMessage.txHash}`}
+                    href={`https://scan.botchain.ai/tx/${txMessage.txHash}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="ml-2 underline font-mono text-xs hover:text-white inline-flex items-center space-x-1"
                   >
-                    <span>View on Bohr Explorer</span>
+                    <span>View on Botchain Explorer</span>
                     <ExternalLink className="w-3 h-3 ml-0.5 inline" />
                   </a>
                 )}
@@ -1013,7 +1013,7 @@ export function App() {
               <div className="relative z-10 max-w-2xl">
                 <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-purple-500/20 border border-purple-500/30 text-purple-300 text-xs font-semibold mb-4">
                   <Sparkles className="w-3.5 h-3.5" />
-                  <span>Powered by Botchain Testnet (Chain ID 968)</span>
+                  <span>Powered by Botchain Mainnet (Chain ID 677)</span>
                 </div>
                 <h1 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight leading-tight">
                   Zero Fee <br />
@@ -1034,7 +1034,7 @@ export function App() {
                     <span>Mint with Pinata IPFS</span>
                   </button>
                   <a
-                    href={`https://scan.bohr.life/address/${contractAddress}`}
+                    href={`https://scan.botchain.ai/address/${contractAddress}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="bg-gray-900/80 hover:bg-gray-800 text-gray-300 font-medium text-sm px-4 py-2.5 rounded-xl border border-gray-700 transition flex items-center space-x-2"
@@ -1493,7 +1493,7 @@ export function App() {
                     <span className="text-gray-400">Transaction:</span>
                     <div className="truncate">
                       <a
-                        href={`https://scan.bohr.life/tx/${lastMintedResult.txHash}`}
+                        href={`https://scan.botchain.ai/tx/${lastMintedResult.txHash}`}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-purple-400 hover:text-purple-300 font-mono underline inline-flex items-center space-x-1"
@@ -1551,9 +1551,9 @@ export function App() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="p-5 rounded-2xl bg-gray-900/60 border border-gray-800">
                 <span className="text-xs text-gray-500 font-semibold uppercase tracking-wider">Network</span>
-                <div className="text-lg font-bold text-white mt-1">Botchain Testnet</div>
+                <div className="text-lg font-bold text-white mt-1">Botchain Mainnet</div>
                 <div className="text-xs text-gray-400 mt-2 space-y-1 font-mono">
-                  <div>Chain ID: <strong>968</strong> (0x3c8)</div>
+                  <div>Chain ID: <strong>677</strong> (0x2a5)</div>
                   <div>Native Token: <strong>BOT</strong> (18 decimals)</div>
                   <div>Total Supply: <strong>150 Million BOT</strong></div>
                 </div>
@@ -1561,9 +1561,9 @@ export function App() {
 
               <div className="p-5 rounded-2xl bg-gray-900/60 border border-gray-800">
                 <span className="text-xs text-gray-500 font-semibold uppercase tracking-wider">RPC Endpoint</span>
-                <div className="text-lg font-bold text-white mt-1">Bohr Life RPC</div>
+                <div className="text-lg font-bold text-white mt-1">Botchain RPC</div>
                 <div className="text-xs text-gray-400 mt-2 space-y-1 font-mono">
-                  <div className="truncate">URL: <strong>https://rpc.bohr.life</strong></div>
+                  <div className="truncate">URL: <strong>https://rpc.botchain.ai</strong></div>
                   <div>Status: <span className="text-emerald-400 font-semibold">Active & Synced</span></div>
                 </div>
               </div>
@@ -1575,7 +1575,7 @@ export function App() {
                   <div className="truncate">
                     Address:{' '}
                     <a
-                      href={`https://scan.bohr.life/address/${contractAddress}`}
+                      href={`https://scan.botchain.ai/address/${contractAddress}`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-purple-400 hover:underline"
@@ -1590,20 +1590,19 @@ export function App() {
 
               <div className="p-5 rounded-2xl bg-gray-900/60 border border-gray-800">
                 <span className="text-xs text-gray-500 font-semibold uppercase tracking-wider">Block Explorer</span>
-                <div className="text-lg font-bold text-white mt-1">Bohr Scan</div>
+                <div className="text-lg font-bold text-white mt-1">Botchain Scan</div>
                 <div className="text-xs text-gray-400 mt-2 space-y-1 font-mono">
                   <div>
                     Explorer:{' '}
                     <a
-                      href="https://scan.bohr.life"
+                      href="https://scan.botchain.ai"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-purple-400 hover:underline"
                     >
-                      https://scan.bohr.life
+                      https://scan.botchain.ai
                     </a>
                   </div>
-                  <div>Deployment Tx: 0x1e3d629b3b82...</div>
                 </div>
               </div>
             </div>
@@ -1881,16 +1880,16 @@ export function App() {
             <div className="w-5 h-5 rounded-lg bg-purple-600 flex items-center justify-center text-white">
               <Sparkles className="w-3 h-3" />
             </div>
-            <p>© 2026 Curio NFT Marketplace — Zero Fee on Botchain Testnet (968)</p>
+            <p>© 2026 Curio NFT Marketplace — Zero Fee on Botchain Mainnet (677)</p>
           </div>
           <div className="flex space-x-4">
             <a
-              href="https://scan.bohr.life"
+              href="https://scan.botchain.ai"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-gray-400 flex items-center space-x-1"
             >
-              <span>Bohr Scan</span>
+              <span>Botchain Scan</span>
               <ExternalLink className="w-3 h-3" />
             </a>
             <span>•</span>

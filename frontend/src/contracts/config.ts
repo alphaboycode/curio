@@ -1,21 +1,21 @@
 import { JsonRpcProvider, Contract } from 'ethers';
 import CurioAbi from './CurioNFTMarketplaceAbi.json';
 
-// Deployed CurioNFTMarketplace address on Botchain Testnet (Chain ID: 968)
+// Deployed CurioNFTMarketplace address on Botchain Mainnet (Chain ID: 677)
 export const CURIO_CONTRACT_ADDRESS =
   import.meta.env.VITE_CURIO_CONTRACT_ADDRESS || '0x5F21A463B9f89ACA481056504e461eBa2cBd704f';
 
 export const BOTCHAIN_NETWORK_CONFIG = {
-  chainId: 968,
-  chainIdHex: '0x3c8',
-  chainName: 'Botchain Testnet',
-  rpcUrls: [import.meta.env.VITE_RPC_URL || 'https://rpc.bohr.life'],
+  chainId: 677,
+  chainIdHex: '0x2a5',
+  chainName: 'Botchain Mainnet',
+  rpcUrls: [import.meta.env.VITE_RPC_URL || 'https://rpc.botchain.ai'],
   nativeCurrency: {
     name: 'BOT',
     symbol: 'BOT',
     decimals: 18,
   },
-  blockExplorerUrls: [import.meta.env.VITE_EXPLORER_URL || 'https://scan.bohr.life'],
+  blockExplorerUrls: [import.meta.env.VITE_EXPLORER_URL || 'https://scan.botchain.ai'],
 };
 
 export const CURRENCY_SYMBOL = import.meta.env.VITE_NATIVE_CURRENCY_SYMBOL || 'BOT';

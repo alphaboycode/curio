@@ -161,7 +161,7 @@ export async function uploadNFTToPinata(
     description: metadata.description.trim() || '',
     image: imageUpload.ipfsUri,
     attributes: metadata.attributes || [],
-    external_url: 'https://scan.bohr.life',
+    external_url: 'https://scan.botchain.ai',
   };
 
   // Step 3: Upload metadata JSON

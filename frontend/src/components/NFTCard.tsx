@@ -170,7 +170,7 @@ export const NFTCard: React.FC<NFTCardProps> = ({
               <span>{item.isListed ? 'Seller' : 'Owner'}:</span>
             </span>
             <a
-              href={`https://scan.bohr.life/address/${item.isListed ? item.seller : item.owner}`}
+              href={`https://scan.botchain.ai/address/${item.isListed ? item.seller : item.owner}`}
               target="_blank"
               rel="noopener noreferrer"
               className="font-mono text-gray-300 hover:text-purple-300 transition"

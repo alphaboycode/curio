@@ -3,6 +3,8 @@ instructions.txt
 In frontend/src/assets/nfts, there are 3 nfts image there.
 Now do the following 
 
+
+
 Wallet 1: 
 Address: 0xbab4e21897330c341161Ca7b881e2c9ffCac0BF2
 Private key: 489eee3c04865570094971d66495f91141d91e1f2c960550183800d87e0c8ebf
@@ -13,6 +15,8 @@ Description: Swift, clever, and touched by moonlight, the Fox Spirit slips betwe
 
 For tokenuri, use the fox spirit image in assets/nfts
 After minting 5 nfts, list 2 and buy 2 from the marketplace 
+
+for listing check the wallet balance and know how to much to list the nfts to avoid insufficient balance
 
 
 Wallet 2: 0x8Ff521632bce1F54F2DA35a71fEfEa5c368f5d8f

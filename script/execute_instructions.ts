@@ -1,8 +1,8 @@
 import { ethers } from '../frontend/node_modules/ethers';
 import abiJson from '../frontend/src/contracts/CurioNFTMarketplaceAbi.json';
 
-const RPC_URL = 'https://rpc.bohr.life';
-const CONTRACT_ADDRESS = '0x5F21A463B9f89ACA481056504e461eBa2cBd704f';
+const RPC_URL = process.env.VITE_RPC_URL || 'https://rpc.botchain.ai';
+const CONTRACT_ADDRESS = process.env.VITE_CURIO_CONTRACT_ADDRESS || '0x5F21A463B9f89ACA481056504e461eBa2cBd704f';
 
 const WALLET_CONFIGS = [
   {
@@ -28,10 +28,10 @@ const WALLET_CONFIGS = [
   },
 ];
 
-const LIST_PRICE = ethers.parseEther('0.005'); // 0.005 BOT
+const LIST_PRICE = ethers.parseEther('0.001'); // 0.001 BOT (conserving balance)
 
 async function main() {
-  console.log('--- Starting Instruction Execution on Botchain Testnet ---');
+  console.log('--- Starting Instruction Execution on Botchain Mainnet ---');
   const provider = new ethers.JsonRpcProvider(RPC_URL);
 
   // Initialize wallets
