@@ -27,7 +27,9 @@ import {
   BOTCHAIN_NETWORK_CONFIG, 
   CURRENCY_SYMBOL,
   resolveIPFS,
-  getCachedNFTMetadata
+  getCachedNFTMetadata,
+  getReadOnlyProvider,
+  getReadOnlyContract
 } from './contracts/config';
 import type { NFTItem } from './contracts/config';
 import { NFTCard } from './components/NFTCard';
@@ -156,9 +158,15 @@ export function App() {
           const userAccount = accounts[0];
           setAccount(userAccount);
 
-          // Get wallet balance
-          const balance = await browserProvider.getBalance(userAccount);
-          setWalletBalance(parseFloat(formatEther(balance)).toFixed(4));
+          // Get wallet balance on Botchain
+          try {
+            const botchainProvider = getReadOnlyProvider();
+            const balance = await botchainProvider.getBalance(userAccount);
+            setWalletBalance(parseFloat(formatEther(balance)).toFixed(4));
+          } catch {
+            const balance = await browserProvider.getBalance(userAccount);
+            setWalletBalance(parseFloat(formatEther(balance)).toFixed(4));
+          }
 
           setTxMessage({
             type: 'success',
@@ -187,9 +195,15 @@ export function App() {
       const handleAccountsChanged = async (accounts: string[]) => {
         if (accounts.length > 0) {
           setAccount(accounts[0]);
-          if (provider) {
-            const balance = await provider.getBalance(accounts[0]);
+          try {
+            const botchainProvider = getReadOnlyProvider();
+            const balance = await botchainProvider.getBalance(accounts[0]);
             setWalletBalance(parseFloat(formatEther(balance)).toFixed(4));
+          } catch {
+            if (provider) {
+              const balance = await provider.getBalance(accounts[0]);
+              setWalletBalance(parseFloat(formatEther(balance)).toFixed(4));
+            }
           }
         } else {
           setAccount(null);
@@ -224,36 +238,44 @@ export function App() {
             setAccount(accounts[0]);
             const network = await p.getNetwork();
             setChainId(Number(network.chainId));
-            const balance = await p.getBalance(accounts[0]);
-            setWalletBalance(parseFloat(formatEther(balance)).toFixed(4));
+            try {
+              const botchainProvider = getReadOnlyProvider();
+              const balance = await botchainProvider.getBalance(accounts[0]);
+              setWalletBalance(parseFloat(formatEther(balance)).toFixed(4));
+            } catch {
+              const balance = await p.getBalance(accounts[0]);
+              setWalletBalance(parseFloat(formatEther(balance)).toFixed(4));
+            }
           }
         })
         .catch(() => {});
     }
   }, []);
 
-  // Get Contract instance (read-only or with signer)
+  // Get Contract instance (read-only with fallback or with signer)
   const getContract = async (withSigner = false) => {
     try {
-      if (!provider && typeof window !== 'undefined' && (window as any).ethereum) {
-        const p = new BrowserProvider((window as any).ethereum);
-        setProvider(p);
-        if (withSigner) {
-          const signer = await p.getSigner();
+      if (withSigner) {
+        if (!account && typeof window !== 'undefined' && (window as any).ethereum) {
+          await connectWallet();
+        }
+        if (typeof window !== 'undefined' && (window as any).ethereum) {
+          const browserProvider = provider || new BrowserProvider((window as any).ethereum);
+          if (!provider) setProvider(browserProvider);
+          const signer = await browserProvider.getSigner();
           return new Contract(contractAddress, CURIO_ABI, signer);
         }
-        return new Contract(contractAddress, CURIO_ABI, p);
+        return null;
       }
-      if (provider) {
-        if (withSigner) {
-          const signer = await provider.getSigner();
-          return new Contract(contractAddress, CURIO_ABI, signer);
-        }
-        return new Contract(contractAddress, CURIO_ABI, provider);
-      }
-      return null;
+
+      // Read-only contract uses public Botchain RPC provider directly
+      // This ensures all users can view listed NFTs without connecting a wallet
+      return getReadOnlyContract(contractAddress);
     } catch (err) {
       console.error('Error instantiating contract:', err);
+      if (!withSigner) {
+        return getReadOnlyContract(contractAddress);
+      }
       return null;
     }
   };
@@ -306,10 +328,16 @@ export function App() {
           }));
           setUserNFTs(formattedUserNFTs);
 
-          // Update balance
-          if (provider) {
-            const balance = await provider.getBalance(account);
+          // Update balance directly from Botchain RPC
+          try {
+            const botchainProvider = getReadOnlyProvider();
+            const balance = await botchainProvider.getBalance(account);
             setWalletBalance(parseFloat(formatEther(balance)).toFixed(4));
+          } catch {
+            if (provider) {
+              const balance = await provider.getBalance(account);
+              setWalletBalance(parseFloat(formatEther(balance)).toFixed(4));
+            }
           }
         } catch (e) {
           console.error('Error fetching user NFTs:', e);
@@ -652,10 +680,13 @@ export function App() {
     .filter((item) => {
       if (!searchQuery) return true;
       const q = searchQuery.toLowerCase();
+      const cached = getCachedNFTMetadata(item.tokenURI);
+      const name = cached?.name?.toLowerCase() || '';
       return (
         item.tokenId.toString().includes(q) ||
         item.seller.toLowerCase().includes(q) ||
-        item.tokenURI.toLowerCase().includes(q)
+        item.tokenURI.toLowerCase().includes(q) ||
+        name.includes(q)
       );
     })
     .sort((a, b) => {
@@ -834,7 +865,7 @@ export function App() {
       {/* Contract & Network Address Sub-header */}
       <div className="bg-gray-950/70 border-b border-gray-800/80 px-4 py-2 text-xs">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-2">
-          {/* <div className="flex items-center space-x-2 text-gray-400 truncate w-full md:w-auto">
+          <div className="flex items-center space-x-2 text-gray-400 truncate w-full md:w-auto">
             <span className="text-gray-500 font-medium">Curio Contract:</span>
             {isEditingAddress ? (
               <div className="flex items-center space-x-1.5 flex-1">
@@ -884,7 +915,7 @@ export function App() {
                 </button>
               </div>
             )}
-          </div> */}
+          </div>
 
           <div className="flex items-center space-x-4 text-[11px] text-gray-400">
             <div className="flex items-center space-x-1">

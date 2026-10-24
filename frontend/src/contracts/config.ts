@@ -1,3 +1,4 @@
+import { JsonRpcProvider, Contract } from 'ethers';
 import CurioAbi from './CurioNFTMarketplaceAbi.json';
 
 // Deployed CurioNFTMarketplace address on Botchain Testnet (Chain ID: 968)
@@ -20,6 +21,26 @@ export const BOTCHAIN_NETWORK_CONFIG = {
 export const CURRENCY_SYMBOL = import.meta.env.VITE_NATIVE_CURRENCY_SYMBOL || 'BOT';
 
 export const CURIO_ABI = CurioAbi;
+
+let readOnlyProviderInstance: JsonRpcProvider | null = null;
+
+export function getReadOnlyProvider(): JsonRpcProvider {
+  if (!readOnlyProviderInstance) {
+    readOnlyProviderInstance = new JsonRpcProvider(
+      BOTCHAIN_NETWORK_CONFIG.rpcUrls[0],
+      {
+        chainId: BOTCHAIN_NETWORK_CONFIG.chainId,
+        name: BOTCHAIN_NETWORK_CONFIG.chainName,
+      },
+      { staticNetwork: true }
+    );
+  }
+  return readOnlyProviderInstance;
+}
+
+export function getReadOnlyContract(address: string = CURIO_CONTRACT_ADDRESS): Contract {
+  return new Contract(address, CURIO_ABI, getReadOnlyProvider());
+}
 
 export interface NFTItem {
   tokenId: bigint;
