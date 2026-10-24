@@ -1874,36 +1874,79 @@ export function App() {
       )}
 
       {/* Footer */}
-      <footer className="border-t border-gray-900 bg-gray-950/80 py-8 text-xs text-gray-500 mt-auto">
-        <div className="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div className="flex items-center space-x-2">
-            <div className="w-5 h-5 rounded-lg bg-purple-600 flex items-center justify-center text-white">
-              <Sparkles className="w-3 h-3" />
+      <footer className="border-t border-gray-900 bg-gray-950/90 py-8 text-xs text-gray-400 mt-auto">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-start pb-6 border-b border-gray-900">
+            {/* Brand / Overview */}
+            <div className="space-y-2">
+              <div className="flex items-center space-x-2">
+                <div className="w-6 h-6 rounded-lg bg-gradient-to-tr from-purple-600 to-indigo-600 flex items-center justify-center text-white shadow-md shadow-purple-600/30">
+                  <Sparkles className="w-3.5 h-3.5" />
+                </div>
+                <span className="font-bold text-sm text-white tracking-tight">Curio NFT Marketplace</span>
+              </div>
+              <p className="text-gray-400 text-xs leading-relaxed">
+                Zero-fee on-chain NFT minting and marketplace powered directly by Botchain Mainnet.
+              </p>
             </div>
-            <p>© 2026 Curio NFT Marketplace — Zero Fee on Botchain Mainnet (677)</p>
+
+            {/* Proof on bot mainnet */}
+            <div className="bg-gray-900/90 border border-gray-800 rounded-2xl p-4 shadow-lg lg:col-span-2">
+              <div className="flex items-center justify-between mb-2 pb-2 border-b border-gray-800/80">
+                <div className="flex items-center space-x-2 text-white font-semibold text-xs">
+                  <ShieldCheck className="w-4 h-4 text-emerald-400" />
+                  <span>Proof on bot mainnet</span>
+                </div>
+                <div className="flex items-center space-x-1.5 text-[11px] text-gray-400">
+                  <span className="text-gray-500 font-sans">Chain id:</span>
+                  <span className="text-emerald-400 font-mono font-bold bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">
+                    677
+                  </span>
+                </div>
+              </div>
+              <div className="space-y-1 text-xs">
+                <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2">
+                  <span className="text-gray-400 font-medium whitespace-nowrap">Contract:</span>
+                  <a
+                    href="https://scan.botchain.ai/address/0x37972DCed63F6bB8356AE002DE75FEB2b37dAB9D"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-mono text-[11px] text-purple-400 hover:text-purple-300 underline underline-offset-2 break-all inline-flex items-center gap-1 transition"
+                    title="View contract on BOTScan"
+                  >
+                    <span>0x37972DCed63F6bB8356AE002DE75FEB2b37dAB9D</span>
+                    <ExternalLink className="w-3 h-3 flex-shrink-0" />
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
-          <div className="flex space-x-4">
-            <a
-              href="https://scan.botchain.ai"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-gray-400 flex items-center space-x-1"
-            >
-              <span>Botchain Scan</span>
-              <ExternalLink className="w-3 h-3" />
-            </a>
-            <span>•</span>
-            <a
-              href="https://pinata.cloud"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-gray-400 flex items-center space-x-1"
-            >
-              <span>Pinata IPFS</span>
-              <ExternalLink className="w-3 h-3" />
-            </a>
-            <span>•</span>
-            <span className="text-gray-400">Total Supply: 150M BOT</span>
+
+          {/* Bottom Bar & Hyperlinks */}
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-400">
+            <p>© 2026 Curio NFT Marketplace — Zero Fee on Botchain Mainnet</p>
+            <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
+              <a
+                href="https://www.botchain.ai/en/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-300 hover:text-purple-400 flex items-center space-x-1.5 font-medium transition"
+              >
+                <span>BOT Chain Website</span>
+                <ExternalLink className="w-3 h-3 text-gray-500" />
+              </a>
+              <span className="text-gray-700 hidden sm:inline">•</span>
+              <a
+                href="https://scan.botchain.ai/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-300 hover:text-purple-400 flex items-center space-x-1.5 font-medium transition"
+              >
+                <span>BOTScan explorer</span>
+                <ExternalLink className="w-3 h-3 text-gray-500" />
+              </a>
+         
+            </div>
           </div>
         </div>
       </footer>
