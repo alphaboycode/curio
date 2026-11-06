@@ -19,8 +19,10 @@ import {
   Info,
   ShieldCheck,
   KeyRound,
-  Coins
+  Coins,
+  Globe
 } from 'lucide-react';
+import botchainLogo from './assets/botchainlogo.svg';
 import { 
   CURIO_CONTRACT_ADDRESS, 
   CURIO_ABI, 
@@ -1922,30 +1924,68 @@ export function App() {
             </div>
           </div>
 
-          {/* Bottom Bar & Hyperlinks */}
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-400">
-            <p>© 2026 Curio NFT Marketplace — Zero Fee on Botchain Mainnet</p>
-            <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
+
+
+          {/* PART OF THE ECOSYSTEM Section */}
+          <div className="flex flex-col items-center justify-center text-center space-y-4 max-w-xl mx-auto pt-4">
+            <div className="text-purple-400 font-semibold text-xs tracking-[0.25em] uppercase">
+              PART OF THE ECOSYSTEM
+            </div>
+
+            {/* Circular Logo Badge */}
+            <div className="relative flex items-center justify-center p-2">
+              <div className="w-24 h-24 rounded-full bg-gray-900/90 border border-purple-500/30 flex items-center justify-center shadow-[0_0_30px_rgba(168,85,247,0.2)] ring-4 ring-purple-500/10">
+                <img
+                  src={botchainLogo}
+                  alt="BOT Chain Logo"
+                  className="w-12 h-12 object-contain select-none"
+                />
+              </div>
+            </div>
+
+            {/* BOT Chain Name */}
+            <div className="text-2xl sm:text-3xl font-extrabold tracking-tight">
+              <span className="text-purple-400">BOT</span>{' '}
+              <span className="text-white">Chain</span>
+            </div>
+
+            {/* Slogan */}
+            <p className="text-gray-300 text-xs sm:text-sm tracking-wide">
+              Tipped, thanked, on chain
+            </p>
+
+            {/* Diamond Separator */}
+            <div className="flex items-center justify-center gap-3 w-40 mx-auto py-1">
+              <div className="h-[1px] flex-1 bg-gradient-to-r from-transparent to-purple-500/50" />
+              <div className="w-1.5 h-1.5 rotate-45 bg-purple-500 shadow-[0_0_8px_rgba(168,85,247,0.8)]" />
+              <div className="h-[1px] flex-1 bg-gradient-to-l from-transparent to-purple-500/50" />
+            </div>
+
+            {/* Links: botchain.ai & Explorer (no GitHub) */}
+            <div className="flex items-center justify-center gap-8 text-xs sm:text-sm text-gray-300">
               <a
                 href="https://www.botchain.ai/en/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-300 hover:text-purple-400 flex items-center space-x-1.5 font-medium transition"
+                className="flex items-center gap-1.5 hover:text-white transition group"
               >
-                <span>BOT Chain Website</span>
-                <ExternalLink className="w-3 h-3 text-gray-500" />
+                <Globe className="w-4 h-4 text-gray-400 group-hover:text-purple-400 transition" />
+                <span>botchain.ai</span>
               </a>
-              <span className="text-gray-700 hidden sm:inline">•</span>
               <a
                 href="https://scan.botchain.ai/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-300 hover:text-purple-400 flex items-center space-x-1.5 font-medium transition"
+                className="flex items-center gap-1.5 hover:text-white transition group"
               >
-                <span>BOTScan explorer</span>
-                <ExternalLink className="w-3 h-3 text-gray-500" />
+                <Search className="w-4 h-4 text-gray-400 group-hover:text-purple-400 transition" />
+                <span>Explorer</span>
               </a>
-         
+            </div>
+
+            {/* Footer Copyright Line */}
+            <div className="pt-2 text-[11px] sm:text-xs text-gray-400 font-sans tracking-wide">
+              © 2026 <strong className="text-white font-semibold">BOT Chain</strong> · Mainnet · Chain ID <strong className="text-white font-semibold">677</strong>
             </div>
           </div>
         </div>
