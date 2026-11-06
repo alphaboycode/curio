@@ -1951,7 +1951,7 @@ export function App() {
 
             {/* Slogan */}
             <p className="text-gray-300 text-xs sm:text-sm tracking-wide">
-              Tipped, thanked, on chain
+              Minted, listed, traded, on chain
             </p>
 
             {/* Diamond Separator */}
